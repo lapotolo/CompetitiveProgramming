@@ -1,0 +1,14 @@
+[input generation]: python gen_data.py leaves queries updates > inputX
+[compilation]: g++ -std=c++11 -O3 segment.cpp -o segment
+[execution]: ./segment < inputX
+
+[result example with leaves=1000, queries=10, updates=10]
+parsing the input took: 0.000212911 [sec]
+building tree with 1000 leaves
+building took: 4.6789e-05 [sec]
+executing 10 range queries
+average query time: 0.53906 [musec]
+executing 10 updates
+average update time: 0.4584 [musec]
+executing 10 range updates
+average range update time: 2.3324 [musec]
