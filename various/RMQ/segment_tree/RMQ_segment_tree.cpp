@@ -64,7 +64,7 @@ int answer_RMQ(vector<int> const& segtree, int q_low, int q_high, int low, int h
                     answer_RMQ(segtree, q_low, q_high, mid+1, high, RIGHT_CHILD(pos)));
 }
 
-void update(vector<int> & segtree, )
+// void update(vector<int> & segtree, )
 
 int main() {
     std::ios_base::sync_with_stdio(false);
@@ -109,7 +109,7 @@ int main() {
     cout << "Iteratively-built segtree printings: \n";
     cout << "num_tree_nodes = (2*n) - 1 = " << segtree_iter.size() << endl;
     cout << "segtree_iter = [ ";
-    for(int i = 0; i< segtree_iter.size(); ++i){
+    for(int i = 0; i < segtree_iter.size(); ++i){
         cout << segtree_iter[i] << " ";
     }
     cout << "]" << endl;
