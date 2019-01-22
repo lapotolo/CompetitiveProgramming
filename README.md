@@ -1,1 +1,2 @@
 Competitive Programming and Contests @Università di Pisa a.a 2017-2018
+see [problem](https://github.com/lapotolo/CompetitiveProgramming/problems) folder for solutions and descriptions of the mandatory exercises.

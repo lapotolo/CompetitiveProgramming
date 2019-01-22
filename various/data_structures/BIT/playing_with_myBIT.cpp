@@ -8,7 +8,7 @@ int main(){
 
     BIT<int> fen(A);
     for (auto el : fen.B) cout << el << " ";
-    cout << endl;
+x    cout << endl;
     cout << fen.sum(1) << endl;
     cout << fen.sum(2) << endl;
     cout << fen.sum(3) << endl;
