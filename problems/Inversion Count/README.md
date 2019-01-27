@@ -14,7 +14,7 @@ We keep track of the encountered values using a BIT so that we can answer the ne
 
 
 In particular for every element we use the add BIT operation to record the fact that we encoutered that elements
-and then we increment the number of inversions by a the number of values smaller than the current element.
+and then we increment the number of inversions by the number of values smaller than the current element.
 
 
 This number is given by the prefix-sum up to position i in the data structure used for keeping the cumulative frequencies,
