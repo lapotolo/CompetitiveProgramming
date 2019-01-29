@@ -144,7 +144,7 @@ int main() {
     uint64_t m = 0; // number of queries
     std::cin >> m;
 
-    typedef std::chrono::high_resolution_clock clock_type;
+    // typedef std::chrono::high_resolution_clock clock_type;
     typedef int int_type;
 
     std::vector<int_type> A;

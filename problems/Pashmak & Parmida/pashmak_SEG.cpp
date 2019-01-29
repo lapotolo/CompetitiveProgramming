@@ -6,27 +6,11 @@
 #define printdbg(x) std::cout << #x ": " << x << std::endl;
 #define printarr(a, start) for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
 
-
-template <typename T>
-
-class Fenwick_Tree
+template <typename OpType, typename NumType>
+struct Segment_Tree
 {
-  
-public:
-  int n;
-  std::vector<T> B;
-
-  Fenwick_Tree(int size) : n(size) { B = std::vector<T>(n+1, 0); }
-  
-  void add(int i, T v) {for (++i; i <= n; i += (i&(-i))) B[i] += v;}
-  
-  T sum(int i) {
-    T sum = 0;
-    for (++i; i != 0; i -= (i&(-i))) sum += B[i];
-    return sum;
-  }
-};
-
+private:
+}
 
 void to_ranks(std::vector<int> & a, std::vector<int> & tmp){
   std::sort(tmp.begin(), tmp.end());  

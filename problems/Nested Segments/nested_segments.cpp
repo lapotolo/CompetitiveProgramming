@@ -31,14 +31,6 @@ void to_ranks(std::vector<int> & a, std::vector<int> & tmp){
   for (int i = 0; i < tmp.size(); i++) a[i] = std::lower_bound(tmp.begin(), tmp.end(), a[i]) - tmp.begin();
 }
 
-void fill_vector(std::vector<int> & vec, size_t n) {
-  int x = 0;
-  for(size_t i = 0; i < n; ++i){
-    std::cin >> x;
-    vec.push_back(x);
-  }	
-}
-
 struct segment {
   int left, right, id;
 
