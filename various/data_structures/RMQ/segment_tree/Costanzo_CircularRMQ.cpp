@@ -226,12 +226,12 @@ int main() {
                 inc(tree, lazy, q.left, n-1, q.val, 0);
                 inc(tree, lazy, 0, q.right, q.val, 0);
             }
+            
         } else {
             if (q.rmq) 
                 std::cout << range_min(tree, lazy, q.left, q.right, 0) << std::endl;
             else
                 inc(tree, lazy, q.left, q.right, q.val, 0);
-
         }
     }
 
