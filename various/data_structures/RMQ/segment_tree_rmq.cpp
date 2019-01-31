@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 
 #define LEFT(i)     (2 * i + 1)
 #define RIGHT(i)    (2 * i + 2)
@@ -30,11 +31,19 @@ public:
 
     segtree.resize(tree_size, 0);
     laztree.resize(tree_size, 0);
+
+    typedef std::chrono::high_resolution_clock clock_type;
+    auto time_start = clock_type::now();
     build(root_segment(), 0);
-    printele("dopo rec build");
-    segtree_iter.resize(2*num_leaves-1);
+    auto time_end = clock_type::now();
+    std::chrono::duration<double> elapsed = time_end - time_start;
+    std::cout << "Rec-building took: " << elapsed.count() << " [sec]" << std::endl;
+
+    time_start = clock_type::now();
     iterative_build();
-    printele("dopo iter build")
+    time_end = clock_type::now();
+    elapsed = time_end-time_start;
+    std::cout << "Iter-building took: " << elapsed.count() << " [sec]" << std::endl;
   }
   
   int64_t circular_rmq(int q_left, int q_right) {
@@ -90,6 +99,8 @@ private:
   }
 
   void iterative_build() {
+    int iter_tree_size = 2*num_leaves-1;
+    segtree_iter.resize(iter_tree_size, 0);
     auto heigth = (int) ceil(log2(num_leaves));
     int left_most_node, offset;
     if (heigth > 0) {
@@ -98,17 +109,15 @@ private:
     } else offset = 0;
     int i = 0;
     int k = 0;
-    for (int j = offset; j != tree_size; ++i, ++j, ++k) {
+    for (int j = offset; j != iter_tree_size; ++i, ++j, ++k) {
       // segtree[j] = {leaves[k], i, i};
       segtree_iter[j] = leaves[k];
     }
-    
     for (int j = 0; i != num_leaves; ++i, ++j, ++k) {
       //segtree[num_leaves - 1 + j] = node{leaves[k], i, i};
       segtree_iter[num_leaves - 1 + j] = leaves[k];
     }
-    
-    for (int j = tree_size - 1; j != 0; j -= 2) {
+    for (int j = iter_tree_size - 1; j != 0; j -= 2) {
       NumType parent_val = std::min(segtree_iter[j], segtree_iter[j - 1]);
       segtree_iter[PARENT(j)] = parent_val;
       //NumType parent_val = segtree[j].val + segtree[j - 1].val;
@@ -182,12 +191,21 @@ int main() {
   // std::vector<int> input(n, 0);
   // for (int i = 0; i < n; ++i) { std::cin >> input[i];}
 
-  std::vector<int> input{1,2,3,4};
-  n = input.size();
+  std::cin >> n;
+  std::vector<int> input(n);  
+  auto rand_num_generator = [](int min, int max) -> int
+    { return rand() % max + min;};
+  for(int i = 0; i < n; ++i){
+    auto x = rand_num_generator(1, 1000);
+    input.emplace_back(x);
+  }
+
+  //  std::vector<int> input {5,3,1,2,0};
+  
   Lazy_Segment_Tree<int> segm(input);
 
-  segm.print_tree(1);
-  segm.print_tree(0);
+  //segm.print_tree(1);
+  //segm.print_tree(0);
 
   std::cout << res << std::endl;
   return 0;
