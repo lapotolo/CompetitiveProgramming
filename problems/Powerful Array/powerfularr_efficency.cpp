@@ -41,7 +41,7 @@ void momo( std::vector<int> const& input
 {
   int l, r, current_l = 0, current_r = 0;
   int64_t tmp_result = 0;
-  std::vector<int> counter(input.size()+1, 0);
+  std::vector<int> counter(input.size());
   std::vector<int64_t> res(Q.size());
 
   for (size_t i = 0; i < Q.size(); ++i){
@@ -88,10 +88,11 @@ int main() {
   // source: https://codeforces.com/blog/entry/59346
   auto mo_cmp2 = [&](query const& a, query const& b) -> bool
     {
-      if(a.l/bucket_size != b.l/bucket_size) return a.l/bucket_size < b.l/bucket_size;
-      return (a.r < b.r) ^ ((a.l/bucket_size) % 2);   
+      int bucketed_al = a.l/bucket_size;
+      int bucketed_bl = b.l/bucket_size;
+      if(bucketed_al != bucketed_bl) return bucketed_al < bucketed_bl;
+      return (a.r < b.r) ^ ((bucketed_al) % 2);   
     };
-  
   sort(Q.begin(), Q.end(), mo_cmp2);
   momo(input, Q);
   return 0;
