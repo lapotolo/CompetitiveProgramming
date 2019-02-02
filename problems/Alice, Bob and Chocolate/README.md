@@ -2,7 +2,7 @@
 Problem : http://codeforces.com/problemset/problem/6/C?locale=en
 
 ### Description:
-We keep two "pointer" to the beginning of the array representing alice current position and the other to the end representing bob current position.
+We keep two "pointers" to the beginning of the array representing alice current position and the other to the end representing bob current position.
 Then we loop over the array while the two pointers don't arrive to the same potion.
 At each loop we check the remainig time needed to eat the next chocolate bar. The one with less remaining time can consume the current piece of chocolate.
 
