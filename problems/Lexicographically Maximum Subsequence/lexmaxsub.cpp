@@ -2,24 +2,23 @@
 #include <string>
 #include <algorithm>
 
-using namespace std;
 
-string find_lex_max_substring(string const& input){
-    string result;
-    char max = input[input.size()-1];
-    for(auto it = input.rbegin(); it != input.rend(); ++it){
-        if(*it >= max){
-            result += *it;
-            max = *it;
-        }
-    }
-    reverse(result.begin(), result.end());
-    return result;
+std::string find_lex_max_substring(std::string const& input){
+	std::string result;
+	char max = input[input.size()-1];
+	for(auto it = input.rbegin(); it != input.rend(); ++it){
+		if(*it >= max){
+			result += *it;
+			max = *it;
+		}
+	}
+	std::reverse(result.begin(), result.end());
+	return result;
 }    
 
 
 int main(){
-    string input;
-    cin >> input;
-    cout << find_lex_max_substring(input);
+	std::string input;
+	std::cin >> input;
+	std::cout << find_lex_max_substring(input) << std::endl;
 }
