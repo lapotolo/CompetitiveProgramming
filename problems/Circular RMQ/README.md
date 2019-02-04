@@ -9,5 +9,7 @@ into two query:
      - the first in the range  [l,.., number_of_leaves -1]
      - the second in the range [0,.., r]
 
-## Time cost  = O(m * log n) 
-## Space cost = O(3n) = O(n) to store the input, the segment tree and the lazy tree
+# Time cost:
+O(m * log n) 
+# Space cost:
+O(3n) = O(n) to store the input, the segment tree and the lazy tree

@@ -14,5 +14,7 @@ we keep a vector to count frequencies of the elements inside the range of each q
 If we do the computation Ks·Ks·s in a naive way, the algorithm would be too slow, so we use a trick: if we have already computed the value (k^2)*s, and we have to compute (k+1)^2*s we have that (k+1)^2*s = k^2*s + 2*k*s + s so we just need to add 2*k*s + s. This is true also if it is the first occurrence of the element (since k = 0) and when we have to subtract an occurance of the element.
 
 
-## Time cost  = O((m + n) * sqrt(n)) from Mo's algorithm
-## Space cost = O(n) to store the input and the counter
+# Time cost:
+O((m + n) * sqrt(n)) from Mo's algorithm
+# Space cost:
+O(n) to store the input and the counter

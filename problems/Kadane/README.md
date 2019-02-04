@@ -8,5 +8,7 @@ We can achieve the right result straightforward in one pass because of the follo
 1. the the two elements before and after the the first and the last element of the sub-array with maximum sum have to be negative 
 2. Every prefix of the sub-array with maximum sum must be positive
 
-## Time cost = O(n)
-## Space cost = O(n) for the input, O(1) to solve Kadane's problem (we just use two variables)
+# Time cost:
+O(n)
+# Space cost:
+O(n) for the input, O(1) to solve Kadane's problem (we just use two variables)

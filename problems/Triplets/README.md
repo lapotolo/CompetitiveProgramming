@@ -8,5 +8,7 @@ The answer we are asked for is computed summing up for each j the product of:
  - num elements greater than A[j], that comes `R.sum(n - 1) - R.sum(A[i])`.
 
 
-## Time cost  = O(n * log n) given by the queries answered using the BIT.
-## Space cost = O(3*n) = O(n)  to store the input and the two BITs.
+# Time cost:
+O(n * log n) given by the queries answered using the BIT.
+# Space cost:
+O(3*n) = O(n)  to store the input and the two BITs.

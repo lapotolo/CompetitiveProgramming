@@ -8,5 +8,7 @@ Then if two employees speaks the same language we do a `unite(emp1, emp2)` and w
 The answer we are asked for is the number of components we have in the end minus 1.
 
 
-## Time cost  = O( n * log n)
-## Space cost = O( n + m)
+#Time cost:
+O( n * log n)
+#Space cost:
+O( n + m)

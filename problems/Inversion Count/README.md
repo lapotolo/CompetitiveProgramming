@@ -20,5 +20,7 @@ and then we increment the number of inversions by the number of values smaller t
 This number is given by the prefix-sum up to position i in the data structure used for keeping the cumulative frequencies,
 ie it's equal to sum(bit, ranks[i]-1)
  
-### Time  complexity: O(n * log(n))
-### Space complexity: O(n)
+#Time  complexity:
+O(n * log(n))
+#Space complexity:
+O(n)

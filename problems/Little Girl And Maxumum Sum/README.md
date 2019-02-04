@@ -10,5 +10,7 @@ The trick to get a nice time complexity is in the strategy we adopt to build the
 
 instead of accessing all the position of a query we just do 2 updates: the first in position l by +1 and the second in position r+1 by -1. Then we can compute the prefix-sum in linear time.
 
-## Time cost  = O(n * log n) dominated by the two sorts
-## Space cost = O(2 * n) = O(n) needed to store the two arrays
+# Time cost: 
+O(n * log n) dominated by the two sorts
+# Space cost:
+O(2 * n) = O(n) needed to store the two arrays

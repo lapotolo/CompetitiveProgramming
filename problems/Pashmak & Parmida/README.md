@@ -12,5 +12,7 @@ Note that, given an index k > i `bit.sum(k)` gives the number of times `f(i, n, 
 Then we loop left to right. We store the prefix-occurrences of elements in input in `counter` support vector and at every iteration thanks to the fenwick tree we answer in logarithmic time to the query `bit.sum(counter[input[i]-1)` whose result is the number of elements smaller then i in every suffix.
 
 
-## Time cost  = O(n * log n) dominated by the sort needed to remap input elements in a compressed range.
-## Space cost = O(n) to store the input array, the suffix_counter, the counter and the Fenwick tree.
+# Time cost:
+O(n * log n) dominated by the sort needed to remap input elements in a compressed range.
+# Space cost:
+O(n) to store the input array, the suffix_counter, the counter and the Fenwick tree.

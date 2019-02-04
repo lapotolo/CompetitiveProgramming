@@ -9,5 +9,7 @@ using the same approach used to computer the leaders of an array (see previus pr
 The amount of water that can be trapped by a single cell is equal to the min between the max to the right and the max to the left minus the height of that cell
 To discard negative values (e.g: input 0 4 1 we would get for the middle cell a value equal to -4) we take the max between zero and the value computed.
 
-### Time cost = O(n) 
-### Space cost = O(n)
+# Time cost:
+O(n) 
+# Space cost:
+O(n)

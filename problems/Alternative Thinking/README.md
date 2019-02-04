@@ -7,5 +7,7 @@ at the end we increment the result by 2.
 There's and edge case: when the length of the max alternating subsequence is equal to the length of the original string
 the answer is n itself.
 
-## Time cost  = O(n) to scan the input array
-## Space cost = O(1) since we just store few variables. It's not needed to store the whole input array
+# Time cost:
+O(n) to scan the input array
+# Space cost:
+O(1) since we just store few variables. It's not needed to store the whole input array

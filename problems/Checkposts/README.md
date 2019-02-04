@@ -11,5 +11,7 @@ by multiplying the number of node with the minimum cost for each cc.
   Space complexity: O(N+M)
   Where:
 
-## Time cost  = O(|V| + |E|) since we are using two DFS over a graph with |V| nodes and |E| edges
-## Space cost = O(|V| + |E|) same as above
+# Time cost: 
+O(|V| + |E|) since we are using two DFS over a graph with |V| nodes and |E| edges
+# Space cost:
+ O(|V| + |E|) same as above

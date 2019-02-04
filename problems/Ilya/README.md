@@ -7,5 +7,7 @@ Using the input string we build a prefix-sum array. The element *prefix_sum[i]* 
 Using this prefix-sum array we can answer each query in constant time by doing two acceses to *prefix_sum[]*, two decrements and a difference.
 
 let n by the length of the input string and m the number of queries. Then :
-## Time cost = O(n + m) dominated by the time spent in building the prefix-sum array
-## Space cost = O(n) needed to store the input string
+# Time cost: 
+O(n + m) dominated by the time spent in building the prefix-sum array
+# Space cost:
+O(n) needed to store the input string
