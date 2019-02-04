@@ -5,8 +5,6 @@
 # include <stack>
 # include <queue>
 
-
-
 void dfs_visit( int u
               , std::vector< std::vector<int> > const& graph
               , std::vector< std::pair<int,int> > & times

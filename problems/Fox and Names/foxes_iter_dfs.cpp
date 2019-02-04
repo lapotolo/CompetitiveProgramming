@@ -71,7 +71,7 @@ int main() {
 	std::cin >> n;
     
 	for (int i=97; i<123; ++i)
-		sigma.emplace_back(node {(char) i, 0, {}});
+		sigma.emplace_back(node {char{i}, int{0}, {}});
     
 	std::string s1, s2;
 	std::cin >> s1;

@@ -13,5 +13,5 @@ sorting.
 If the graph we get is NOT acyclic then there not exists a lexicographical ordering based on the given input
 
  
-### Time  complexity: O()
-### Space complexity: O()
+### Time  complexity: O(|V| + |E|)
+### Space complexity: O(|V| + |E|)

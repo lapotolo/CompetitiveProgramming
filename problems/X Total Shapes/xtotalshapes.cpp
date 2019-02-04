@@ -5,13 +5,18 @@
 #define GRAY 1
 #define BLACK 2
 
-bool is_valid_position(int i, int j, int rows, int columns, std::vector<std::string> const& input){
+bool is_valid_position( int i, int j, int rows, int columns
+                      , std::vector<std::string> const& input)
+{
   if(i >= rows or j >= columns or i < 0 or j < 0) return false;
   if(input[i][j] != 'X') return false;
   return true;
 }
 
-void DFS(int i, int j, int rows, int columns, std::vector<std::vector<short>> & visited, std::vector<std::string> const& input){
+void DFS( int i, int j, int rows, int columns
+        , std::vector<std::vector<short>> & visited
+        , std::vector<std::string> const& input)
+{
   int next_i, next_j;
   std::vector<short> x_directions({1, -1, 0, 0});
   std::vector<short> y_directions({0, 0, 1, -1});
@@ -53,9 +58,9 @@ int main() {
     std::cin >> N >> M;
     std::vector<std::string> input;
     for(int i = 0; i < N; ++i){
-        std::string s;
-        std::cin >> s;
-        input.push_back(s);
+      std::string s;
+      std::cin >> s;
+      input.push_back(s);
     }
     std::cout << count_cc(input) << std::endl;
     test_cases--;
