@@ -9,6 +9,8 @@ int max_alt_subsequence_len(std::string const& input){
 }
 
 int main(){
+  std::ios_base::sync_with_stdio(false);
+
   int input_len, len_alt_sub;
   std::string input;
   std::cin >> input_len >> input;

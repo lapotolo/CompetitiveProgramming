@@ -1,3 +1,6 @@
+// topological sort is computed using the "in-degree algorithm":
+// source: https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -48,7 +51,7 @@ bool topological_sort() {
 	std::queue<node*> q;
 	size_t counter = 0;
 
-	for (auto& n : sigma)
+	for (auto& n : sigma) // enqueue every node with fan-in 0
 		if (n.fan_in == 0)
 		  q.push(&n);
 
@@ -67,6 +70,8 @@ bool topological_sort() {
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+
 	size_t n;
 	std::cin >> n;
     
