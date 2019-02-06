@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 
+#define printele(x) std::cout << x << std::endl;
+#define printdbg(x) std::cout << #x ": " << x << std::endl;
+#define printarr(a, start) for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
+
 void fill_vector(std::vector<int> & vec, size_t n) {
   int x;
   vec.reserve(n);
@@ -16,9 +20,11 @@ int solve_01knapsack(std::vector<int> & weights, std::vector<int> & values, int 
   for (int i = 1; i <= values.size(); ++i) {
     for (int j = 0; j <= W; ++j) {
       if (j < weights[i - 1]) T[i][j] = T[i - 1][j];
-      else T[i][j] = std::max(T[i - 1][j],  values[i - 1] + T[i - 1][j - weights[i - 1]]);
+      else T[i][j] = std::max(T[i - 1][j],
+                              values[i - 1] + T[i - 1][j - weights[i - 1]]);
     } 
   }
+  // for(auto & el : T) { printarr(el,0); }
   return T[values.size()][W];
 }
 
@@ -32,15 +38,18 @@ int main(){
 
   std::cin >> num_test;
 
-  while(num_test != 0){
+  while(num_test > 0){
     std::cin >> N;
     std::cin >> W;
     fill_vector(values, N);
     fill_vector(weights, N);
+    // printarr(values, 0);
+    // printarr(weights, 0);
     std::cout << solve_01knapsack(weights, values, W) << std::endl;
     weights.clear();
     values.clear();
-    num_test--;
+    --num_test;
   }
+  return 0;
 
 }
