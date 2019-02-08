@@ -2,45 +2,38 @@
 #include <vector>
 #include <algorithm>
 
-template<typename T>
-std::vector<T> get_input_sequence(size_t n) {
-    std::vector<T> inputSequence(n);
-    for(size_t i = 0; i < n; ++i) 
-        std::cin >> inputSequence[i];
-    return inputSequence;
-}
+#define printele(x) std::cout << x << std::endl;
+#define printdbg(x) std::cout << #x ": " << x << std::endl;
+#define printarr(a, start) /*std::cout<< #a ": ";*/ for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
 
-int main(int argc, char const *argv[]){
+
+int main() {
 	std::ios_base::sync_with_stdio(false);
 
-	size_t N;
-	int maxHeight = 0, currentHeight = 0, currentLength = 0, towers = 0;
-
-	//	std::cout << "Give me the number of bars ";
+	size_t N, h;
 	std::cin >> N;
-	// std::cout << "Give me the lenghts of the bars separated by blank spaces ";
-	auto lenghts = get_input_sequence<int>(N);
-	
-	std::sort(lenghts.begin(), lenghts.end(),
+	std::vector<size_t> lens(N);
+
+	for (size_t i = 0; i < N; ++i) std::cin >> lens[i];
+	std::sort(lens.begin(), lens.end(),
 		[](int const x, int const y){
 			return x > y;
 		}
 	);
 
-	for (auto it = lenghts.begin(); it != lenghts.end(); ++it){
-		if (*it == currentLength){
-			++currentHeight;
-			if (currentHeight > maxHeight){
-				maxHeight = currentHeight;				
-			}
+	size_t towers = 1, max_h = 1, curr_h = 1, curr_len = lens[0];
+	for (size_t i = 1; i < N; ++i) {
+		if (lens[i] == curr_len) {
+			++curr_h;
+			if (curr_h > max_h) max_h = curr_h;				
 		}	
-		else { // *it != currentLength
-			currentLength = *it;
-			currentHeight = 1;
+		else {
+			curr_len = lens[i];
+			curr_h = 1;
 			++towers;
 		}
 	}
-	lenghts.clear();
-	std::cout << maxHeight << " " << towers << std::endl;
+	lens.clear();
+	std::cout << max_h << " " << towers << std::endl;
 	return 0;
 }

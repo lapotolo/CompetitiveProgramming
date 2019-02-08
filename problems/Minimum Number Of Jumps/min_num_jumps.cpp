@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-// O(n)
 #define printele(x) std::cout << x << std::endl;
 #define printdbg(x) std::cout << #x ": " << x << std::endl;
 #define printarr(a, start) for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
