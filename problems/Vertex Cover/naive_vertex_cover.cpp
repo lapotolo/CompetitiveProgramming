@@ -1,4 +1,4 @@
-// A naive recursive C implementation for vertex cover problem for a tree 
+// NOT FOR SUBMISSION. Check the other source file in this folder!
 #include <stdio.h> 
 #include <stdlib.h> 
 

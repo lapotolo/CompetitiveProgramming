@@ -8,20 +8,16 @@ class Location{
 	int y;
 	uint32_t population;
 
-	public:
-		Location(int x, int y, uint32_t pop)		
-			: x(x)		
-			, y(y)		
-			, population(pop)
-		{}
+public:
+  Location(int x, int y, uint32_t pop)		
+    : x(x)		
+    , y(y)		
+    , population(pop)
+  {}
 		
-		int get_population() const{
-			return population;
-		}
+  int get_population() const { return population; }
 
-		double get_distance() const{		
-				return sqrt(x*x + y*y);
-		}
+  double get_distance() const { return sqrt(x*x + y*y); }
 };
 
 int main(){
