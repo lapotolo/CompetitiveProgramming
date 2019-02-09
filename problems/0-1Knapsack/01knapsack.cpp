@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-#define printele(x) std::cout << x << std::endl;
-#define printdbg(x) std::cout << #x ": " << x << std::endl;
-#define printarr(a, start) for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
 
 int solve_01knapsack(std::vector<int> const& w, std::vector<int> const& v, size_t N, size_t W) { // O(nW)
-  std::vector<std::vector<int>> T(N+1, std::vector<int>(W+1, 0));
+  int T[N+1][W+1];
+  for(size_t i = 0; i <= N; ++i) T[i][0] = 0;
+  for(size_t i = 0; i <= W; ++i) T[0][i] = 0;
+
   for (size_t i = 1; i <= N; ++i) {
     for (size_t j = 0; j <= W; ++j) {
       if (j < w[i - 1]) T[i][j] = T[i - 1][j]; // the new item does not fit the j capacity so the best we can get is the previous best
@@ -22,26 +22,24 @@ int solve_01knapsack(std::vector<int> const& w, std::vector<int> const& v, size_
 
 int main(){
   std::ios_base::sync_with_stdio(false);
+  std::cin.tie(nullptr);
+  std::cout.tie(nullptr);
 
   size_t num_test, N, W, i;
-  std::vector<int> values;
-  std::vector<int> weights;
+  
+  std::vector<int> values, weights;
 
   std::cin >> num_test;
 
   for(size_t t = 0; t < num_test; ++t) {
     std::cin >> N;
     std::cin >> W;
-
     values.resize(N);
     weights.resize(N);
 
     for(i = 0; i < N; ++i) std::cin >> values[i];
     for(i = 0; i < N; ++i) std::cin >> weights[i];
-    std::cout << solve_01knapsack(weights, values, N, W) << std::endl;
-    
-    weights.clear();
-    values.clear();
+    std::cout << solve_01knapsack(weights, values, N, W) << '\n';    
   }
   return 0;
 

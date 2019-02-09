@@ -1,5 +1,3 @@
-
-
 # Minimum Spanning Tree
 Problem : https://www.spoj.com/problems/MST/
 

@@ -42,6 +42,6 @@ int main(){
 	auto edges = build_forest_from_leaves(degrees, sums, leaves);
 	std::cout << edges.size() << std::endl;
 	for(auto e: edges) std::cout << e.first << " " << e.second << std::endl;
-	
+
 	return 0;
 }
