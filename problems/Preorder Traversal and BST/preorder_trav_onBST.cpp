@@ -1,42 +1,42 @@
 #include <iostream>
 #include <vector>
 #include <stack>
+#include <climits>
 
-int isBSTTraversal(std::vector<int> & v) {
-  int last_max = -1;
-  std::stack<int> s;
-  s.push(v.front()); // push the root onto the stack
+#define printele(x) std::cout << x << std::endl;
+#define printdbg(x) std::cout << #x ": " << x << std::endl;
+#define printarr(a, start) for(int i = start; i < a.size(); ++i) {std::cout<<a[i]<<" ";}  std::cout<<" : " #a <<"\n";
 
-  size_t i = 1;
-  while (i != v.size()) {
-    if (v[i] < s.top()) {
-      if (v[i] < last_max) return 0;
-      else s.push(v[i]);
-    }
-    else {
-      while (!s.empty() and v[i] > s.top()) {
-        last_max = s.top();
-        s.pop();
-      }
-      s.push(last_max);
-      s.push(v[i]);
-    }
-    i++;
-  }
-  return 1;
-}
+
+int is_BST(std::vector<int> const& v, int n) { 
+	std::stack<int> s; 
+	int root = INT_MIN; 
+
+	for (size_t i = 0; i < n; ++i) { 
+		if (root > v[i]) return 0; // nodes on the right of the root cannot be greater than root in a BST 
+
+		while (!s.empty() and s.top() < v[i]) { 
+			root = s.top(); 
+			s.pop(); 
+		} 
+		s.push(v[i]); 
+	} 
+	return 1; 
+} 
 
 int main() {
   int t, n;
   std::cin >> t;
+  std::vector<int> input;
 
   while(t > 0) {
+  
     std::cin >> n;
-    std::vector<int> input(n);
+    input.resize(n);
     for (size_t i = 0; i < n; ++i) std::cin >> input[i];
     
-    std::cout << isBSTTraversal(input) << std::endl;
-    
+    std::cout << is_BST(input, n) << std::endl;
+
     input.clear();
     --t;
   }
