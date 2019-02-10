@@ -1,10 +1,10 @@
-#include <stdio>
+#include <algorithm>
 #include <vector>
 // #include <>
 // #include <>
 
 
-size_t partition(std::vector<int> const& v, size_t low, size_t r)
+size_t partition(std::vector<int> const& v, size_t low, size_t high)
 {
   size_t pivot = v[high];
   size_t i = low - 1;
@@ -14,7 +14,7 @@ size_t partition(std::vector<int> const& v, size_t low, size_t r)
     if (v[j] <= pivot)
     {
       ++i;
-      std::swap(v[i], v[j]);
+      swap(v[i], v[j]);
     }
   }
   swap(v[i+1, v[j]);
