@@ -4,14 +4,14 @@
 
 // BIT OPERATION: returns sum  ([ A[0],..,A[index] ])  where A is the vector the BIT is built on
 int sum(std::vector<int> const& BIT, int index) { 
-    int sum = 0; // Initialize result 
-    while (index > 0) {
-      //    std::cout << "index before change = " << index << "\n";
-      sum += BIT[index]; 
-      index -= index & (-index);
-      //std::cout << "index after change = " << index << "\n";
-    } 
-    return sum; 
+  int sum = 0; // Initialize result 
+  while (index > 0) {
+    //    std::cout << "index before change = " << index << "\n";
+    sum += BIT[index]; 
+    index -= index & (-index);
+    //std::cout << "index after change = " << index << "\n";
+  } 
+  return sum; 
 } 
 
 // BIT OPERATION: update the BIT starting from index and moving following the relation "right siblings or parent right siblings"
@@ -19,7 +19,7 @@ void add(std::vector<int> & BIT, int index, int val) {
   while (index <= BIT.size()) { 
     BIT[index] += val;   
     index += index & (-index); 
-   } 
+  } 
 }
 
 void to_ranks(std::vector<int> & A) {

@@ -13,7 +13,7 @@ struct query {
 
 template<typename IntType>
 struct segment_tree {
-
+  
   segment_tree(size_t n) : num_leaves(n), leaves_positions(n) { 
     // build the segment tree and save leaves positions.
     // m is the next power of two of n and it's the number of leaves

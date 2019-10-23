@@ -17,49 +17,49 @@ Space cost = O(n) for the input, O(1) to solve Kadane's problem (we just use two
 #include <vector>
 
 void fill_vector(std::vector<int> & vec, size_t n) {
-    int x = 0;
-    for(size_t i = 0; i < n; ++i){
-        std::cin >> x;
-    	vec.push_back(x);
-    }	
+  int x = 0;
+  for(size_t i = 0; i < n; ++i){
+    std::cin >> x;
+    vec.push_back(x);
+  }	
 }
 
 void kadane(std::vector<int> const& vec){
-    // init both the counters to the first element
-    // in case all numbers are negative
-	int sum = vec.front();
-    int max_sum = sum;
-
-    for (auto it = vec.begin() + 1; it != vec.end(); ++it) {
-        if (sum > 0) {
-            sum += *it;
-        } else {
-            sum = *it;
-        }
-        if (sum > max_sum) {
-            max_sum = sum;
-        }
+  // init both the counters to the first element
+  // in case all numbers are negative
+  int sum = vec.front();
+  int max_sum = sum;
+  
+  for (auto it = vec.begin() + 1; it != vec.end(); ++it) {
+    if (sum > 0) {
+      sum += *it;
+    } else {
+      sum = *it;
     }
-    std::cout << max_sum << std::endl;
+    if (sum > max_sum) {
+      max_sum = sum;
+    }
+  }
+  std::cout << max_sum << std::endl;
 }
 
-	
+
 int main(){
-    std::ios_base::sync_with_stdio(false);
-
-	int test_cases, n;
-
-	std::cin >> test_cases;
-
-	std::vector<int> seq;
-
-	for (int i = 0; i < test_cases; ++i){
-		std::cin >> n;
-		seq.reserve(n);
-		fill_vector(seq, n);
-		kadane(seq);
-		seq.clear();
-	}
+  std::ios_base::sync_with_stdio(false);
+  
+  int test_cases, n;
+  
+  std::cin >> test_cases;
+  
+  std::vector<int> seq;
+  
+  for (int i = 0; i < test_cases; ++i){
+    std::cin >> n;
+    seq.reserve(n);
+    fill_vector(seq, n);
+    kadane(seq);
+    seq.clear();
+  }
 	
-	return 0;
+  return 0;
 }

@@ -6,7 +6,7 @@ int solve_01knapsack(std::vector<int> const& w, std::vector<int> const& v, size_
   int T[N+1][W+1];
   for(size_t i = 0; i <= N; ++i) T[i][0] = 0;
   for(size_t i = 0; i <= W; ++i) T[0][i] = 0;
-
+  
   for (size_t i = 1; i <= N; ++i) {
     for (size_t j = 0; j <= W; ++j) {
       if (j < w[i - 1]) T[i][j] = T[i - 1][j]; // the new item does not fit the j capacity so the best we can get is the previous best
@@ -28,15 +28,15 @@ int main(){
   size_t num_test, N, W, i;
   
   std::vector<int> values, weights;
-
+  
   std::cin >> num_test;
-
+  
   for(size_t t = 0; t < num_test; ++t) {
     std::cin >> N;
     std::cin >> W;
     values.resize(N);
     weights.resize(N);
-
+    
     for(i = 0; i < N; ++i) std::cin >> values[i];
     for(i = 0; i < N; ++i) std::cin >> weights[i];
     std::cout << solve_01knapsack(weights, values, N, W) << '\n';    

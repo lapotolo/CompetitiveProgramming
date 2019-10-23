@@ -14,7 +14,7 @@ class Fenwick_Tree
 public:
   int n;
   std::vector<T> B;
-
+  
   Fenwick_Tree(int size) : n(size) { B = std::vector<T>(n+1, 0); }
   
   void add(int i, T v) {for (++i; i <= n; i += (i&(-i))) B[i] += v;}
@@ -23,7 +23,7 @@ public:
     T sum = 0;
     for (++i; i != 0; i -= (i&(-i))) sum += B[i];
     return sum;
-   }
+  }
 };
 
 void to_ranks(std::vector<int> & a, std::vector<int> & tmp){
@@ -33,7 +33,7 @@ void to_ranks(std::vector<int> & a, std::vector<int> & tmp){
 
 struct segment {
   int left, right, id;
-
+  
   segment(int l, int r, int i): left(l), right(r), id(i) {}
 };
 

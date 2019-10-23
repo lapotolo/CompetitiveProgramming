@@ -22,19 +22,19 @@ int main() {
 
   for(size_t i = 0; i < n; ++i) { std::cin >> people[i].first >> people[i].second; };
 	
-	auto m_cmp = [](std::pair<std::string, int> const& a, std::pair<std::string, int> const& b ) -> bool 
-		{
-			return a.second < b.second;
-		};
-
-	std::sort(people.begin(), people.end(), m_cmp); // sort to check if a solution exists
-
-  for(size_t i = 0; i < n; i++) if(people[i].second > i) { std::cout << -1 << std::endl; return 0; }
-	
-	// I need to go back "people[i].second" positions 
-	for(size_t i = 0; i < n; ++i) heights.insert( heights.begin() + i - people[i].second, i);
-	for(size_t i = 0; i < n; ++i) people[heights[i]].second = i + 1;
-	for(size_t i = 0; i < n; ++i) std::cout << people[i].first << " " << people[i].second << std::endl;
+  auto m_cmp = [](std::pair<std::string, int> const& a, std::pair<std::string, int> const& b ) -> bool 
+    {
+      return a.second < b.second;
+    };
   
-	return 0;
+  std::sort(people.begin(), people.end(), m_cmp); // sort to check if a solution exists
+  
+  for(size_t i = 0; i < n; i++) if(people[i].second > i) { std::cout << -1 << std::endl; return 0; }
+  
+  // I need to go back "people[i].second" positions 
+  for(size_t i = 0; i < n; ++i) heights.insert( heights.begin() + i - people[i].second, i);
+  for(size_t i = 0; i < n; ++i) people[heights[i]].second = i + 1;
+  for(size_t i = 0; i < n; ++i) std::cout << people[i].first << " " << people[i].second << std::endl;
+  
+  return 0;
 }

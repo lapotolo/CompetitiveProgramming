@@ -9,31 +9,31 @@
 
 int main() {
 
-	int t, digit, min_even;
-	std::cin >> t;
-
-	std::string str;
-	while(t > 0) { 
-		min_even = 10;
-		std::vector<int> buckets(11, 0);
-		std::cin >> str;
-		for(auto & c : str) {
+  int t, digit, min_even;
+  std::cin >> t;
+  
+  std::string str;
+  while(t > 0) { 
+    min_even = 10;
+    std::vector<int> buckets(11, 0);
+    std::cin >> str;
+    for(auto & c : str) {
       digit = c - '0';
-			if( (digit%2) == 0 && digit < min_even) {
-				buckets[min_even]++;
-				min_even = digit;	
-			}
+      if( (digit%2) == 0 && digit < min_even) {
+        buckets[min_even]++;
+        min_even = digit;	
+      }
       else buckets[digit]++;
-		}    
-		for (int i = 9; i >= 0; --i){
-			for (int j = 0; j<buckets[i]; ++j){
+    }    
+    for (int i = 9; i >= 0; --i){
+      for (int j = 0; j<buckets[i]; ++j){
         std::cout << i;
-			}
-		}
-		(min_even != 10) ? (std::cout << min_even << std::endl) : (std::cout << std::endl);
+      }
+    }
+    (min_even != 10) ? (std::cout << min_even << std::endl) : (std::cout << std::endl);
     str.clear();
     --t;
-		}
-		
-    return 0;
+  }
+  
+  return 0;
 }

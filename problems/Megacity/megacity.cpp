@@ -4,10 +4,10 @@
 #include <cmath>
 
 class Location{
-	int x;
-	int y;
-	uint32_t population;
-
+  int x;
+  int y;
+  uint32_t population;
+  
 public:
   Location(int x, int y, uint32_t pop)		
     : x(x)		
@@ -16,7 +16,7 @@ public:
   {}
 		
   int get_population() const { return population; }
-
+  
   double get_distance() const { return sqrt(x*x + y*y); }
 };
 
@@ -33,18 +33,18 @@ int main(){
   cities.reserve(n_close_locations);
     
   for(size_t i = 0; i < n_close_locations; i++) {
-  	int x, y, pop;
+    int x, y, pop;
     std::cin >> x  >> y >> pop;
     cities.emplace_back(x, y, pop);
   }    
-    
+  
   auto cities_cmp = [](Location const& a, Location const& b) -> bool
-          {
-            return a.get_distance() < b.get_distance();
-          };
-
+    {
+      return a.get_distance() < b.get_distance();
+    };
+  
   std::sort(cities.begin(), cities.end(), cities_cmp);
-    
+  
   for(auto & city : cities) {
     current_population += city.get_population();
     if(current_population >= 1000000) {

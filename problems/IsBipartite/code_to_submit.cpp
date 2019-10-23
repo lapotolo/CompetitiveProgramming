@@ -6,10 +6,10 @@
 bool dfs_visit(int current_node, int graph[][MAX], int V, int parent_color, vector<int> & coloring) {
   coloring[current_node] = (parent_color + 1 ) % 2;
   for(int j = 0; j < V; ++j){
-      if(graph[current_node][j] == 1) {
-    		if (coloring[j] == WHITE) return dfs_visit(j, graph, V, coloring[current_node], coloring);
-        else if (coloring[j] == coloring[current_node]) return false;   
-      }
+    if(graph[current_node][j] == 1) {
+      if (coloring[j] == WHITE) return dfs_visit(j, graph, V, coloring[current_node], coloring);
+      else if (coloring[j] == coloring[current_node]) return false;   
+    }
   }  
   return true;
 }

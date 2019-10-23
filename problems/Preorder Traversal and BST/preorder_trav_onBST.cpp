@@ -9,19 +9,19 @@
 
 
 int is_BST(std::vector<int> const& v, int n) { 
-	std::stack<int> s; 
-	int root = INT_MIN; 
+  std::stack<int> s; 
+  int root = INT_MIN; 
+  
+  for (size_t i = 0; i < n; ++i) { 
+    if (root > v[i]) return 0; // nodes on the right of the root cannot be greater than root in a BST 
 
-	for (size_t i = 0; i < n; ++i) { 
-		if (root > v[i]) return 0; // nodes on the right of the root cannot be greater than root in a BST 
-
-		while (!s.empty() and s.top() < v[i]) { 
-			root = s.top(); 
-			s.pop(); 
-		} 
-		s.push(v[i]); 
-	} 
-	return 1; 
+    while (!s.empty() and s.top() < v[i]) { 
+      root = s.top(); 
+      s.pop(); 
+    } 
+    s.push(v[i]); 
+  } 
+  return 1; 
 } 
 
 int main() {

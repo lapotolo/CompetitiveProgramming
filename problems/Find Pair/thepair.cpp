@@ -7,10 +7,10 @@ using namespace std;
 
 template<typename T>
 vector<T> get_input_sequence(size_t n) {
-    vector<T> inputSequence(n);
-    for(size_t i = 0; i < n; ++i) 
-        cin >> inputSequence[i];
-    return inputSequence;
+  vector<T> inputSequence(n);
+  for(size_t i = 0; i < n; ++i) 
+    cin >> inputSequence[i];
+  return inputSequence;
 }
 
 void find_kth_pair(uint64_t n, uint64_t k, vector<int> const& seq){
@@ -33,7 +33,7 @@ int main() {
   std::cin >> k;
   
   auto sequence = get_input_sequence<int>(n);
-
+  
   std::sort(sequence.begin(), sequence.end());
   find_kth_pair(n, k, sequence);
   return 0;
